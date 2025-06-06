@@ -13,19 +13,23 @@
         >
       </div>
       <div class="nav-links">
-        <a href="about.html">À propos</a>
-        <a href="contact.html">Mes password</a>
+        <a href="apropos.html">À propos</a>
+        <a href="passwords.html">Mes password</a>
       </div>
     </nav>
 
     <div class="container">
-      <h1>BIENVENU SUR PassBook</h1>
-      <p>Verifiez la robustesse de votre mot de passe dans ce champ</p>
+      <h1>
+        <span id="element"></span>
+      </h1>
 
       <input
         type="password"
         id="passwordInput"
         placeholder="Entrez votre mot de passe"
+        required
+        minlength="4"
+        maxlength="12"
       />
 
       <button id="checkButton">Vérifier</button>
@@ -52,6 +56,22 @@
     <footer>
       <p>&copy; 2025 PassBook+. Tous droits réservés.</p>
     </footer>
+
+    <!-- Charger la bibliothèque depuis le CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Lancer l'animation -->
+    <script>
+      var typed = new Typed("#element", {
+        strings: [
+          "<i>Bienvenue</i> sur <b>PassBook</b>!",
+          "verifiez votre mot de passe ici en toute securité",
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true,
+      });
+    </script>
 
     <script src="script.js"></script>
   </body>
