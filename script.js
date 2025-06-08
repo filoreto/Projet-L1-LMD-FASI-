@@ -41,7 +41,7 @@ async function verifierMotDePasse() {
     if (compromis) {
       const mdpFort = genererMotDePasse(12); // mot de passe généré
       result.innerHTML = `
-        🔴 Ce mot de passe a été trouvé dans une fuite de données !<br>
+        🔴 ${password} a été compromi dans une fuite des données !<br>
         💡 Voici un mot de passe fort que vous pouvez utiliser :
         <br><input type="text" id="mdpGenere" value="${mdpFort}" readonly>
         <button onclick="copierMotDePasse()">📋 Copier</button>
