@@ -20,7 +20,7 @@ async function verifierMotDePasse() {
     return;
   }
 
-  result.textContent = "⏳ Vérification en cours...";
+  result.textContent = "Vérification en cours...";
 
   try {
     const hash = await sha1(password);
@@ -41,10 +41,10 @@ async function verifierMotDePasse() {
     if (compromis) {
       const mdpFort = genererMotDePasse(12); // mot de passe généré
       result.innerHTML = `
-        🔴 ${password} a été compromi dans une fuite des données !<br>
-        💡 Voici un mot de passe fort que vous pouvez utiliser :
+         ${password} a été compromi dans une fuite des données !<br>
+         Voici un mot de passe fort que vous pouvez utiliser :
         <br><input type="text" id="mdpGenere" value="${mdpFort}" readonly>
-        <button onclick="copierMotDePasse()">📋 Copier</button>
+        <button onclick="copierMotDePasse()">Copier</button>
       `;
     } else {
       result.textContent =
@@ -82,10 +82,51 @@ function copierMotDePasse() {
   champ.select();
   champ.setSelectionRange(0, 99999); // compatibilité mobile
   document.execCommand("copy");
-  alert("✅ Mot de passe copié !");
+  alert(" Mot de passe copié !");
 }
 
 // Événement bouton vérification
 document
   .getElementById("checkButton")
   .addEventListener("click", verifierMotDePasse);
+
+ // Fonction pour générer un mot de passe fort
+function genererMotDePasse(longueur = 16) {
+  const majuscules = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const minuscules = "abcdefghijklmnopqrstuvwxyz";
+  const chiffres = "0123456789";
+  const symboles = "!@#$%^&*()-_=+[]{}<>?/";
+
+  const tous = majuscules + minuscules + chiffres + symboles;
+  let motDePasse = "";
+
+  for (let i = 0; i < longueur; i++) {
+    const index = Math.floor(Math.random() * tous.length);
+    motDePasse += tous[index];
+  }
+
+  return motDePasse;
+}
+
+// Quand on clique sur le bouton, un mot de passe est généré
+function afficherMotDePasseGenere() {
+  const mot = genererMotDePasse(16);
+  const champ = document.getElementById("result");
+  champ.innerHTML = `
+    <p>Voici un mot de passe fort généré :</p>
+    <input type="text" id="mdpGenere" value="${mot}" readonly>
+    <button onclick="copierMotDePasse()"> Copier</button>
+  `;
+  champ.value = mot;
+}
+
+// Bouton pour copier le mot de passe
+function copierMotDePasse() {
+  const champ = document.getElementById("mdpGenere");
+  champ.select();
+  champ.setSelectionRange(0, 99999); // pour mobile
+  document.execCommand("copy");
+  alert("Mot de passe copié !");
+}
+ 
+  
