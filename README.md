@@ -10,7 +10,7 @@
 ## 🚀 Fonctionnalités
 
 - ✅ Vérification de mot de passe en temps réel (via hachage SHA-1 et API HIBP)
-- 🔁 Génération automatique d’un mot de passe sécurisé si le mot de passe est compromis
+- 🔁 Génération automatique d’un mot de passe sécurisé 
 - 📋 Bouton "Copier" pour utiliser facilement le mot de passe suggéré
 - 💡 Interface simple, éducative et légère (HTML + JS pur)
 
@@ -21,7 +21,6 @@
 - HTML5 / CSS3 (base simple)
 - JavaScript (ES6)
 - API [Have I Been Pwned – Pwned Passwords](https://haveibeenpwned.com/API/v3#PwnedPasswords)
-- Proxy `allorigins.win` pour contourner les limitations CORS
 - `crypto.subtle` pour le hachage SHA-1 dans le navigateur
 
 ---
@@ -59,12 +58,9 @@
 
 ## 🧑‍💻 Auteur
 
-Projet réalisé par [TETO FILORETO CHRISTIAN] 
+Projet réalisé par TETO FILORETO CHRISTIAN
 L1 LMD FASI
 
 
 ---
-
-## 📜 Licence
-
 Ce projet est open-source — tu peux le modifier, le partager ou t’en inspirer librement.
