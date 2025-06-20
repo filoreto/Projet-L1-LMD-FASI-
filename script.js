@@ -11,7 +11,7 @@ async function sha1(message) {
 }
 
 // Fonction principale de vérification du mot de passe
-async function verifierMotDePasse() {
+async function verifierMotDePasse(){
   const password = document.getElementById("passwordInput").value.trim();
   const result = document.getElementById("result");
 
@@ -48,7 +48,7 @@ async function verifierMotDePasse() {
       `;
     } else {
       result.textContent =
-        "🟢 Ce mot de passe n'a pas été trouvé dans les fuites connues.";
+        "Ce mot de passe n'a pas été trouvé dans les fuites connues.";
       result.style.color = "green";
     }
   } catch (err) {
